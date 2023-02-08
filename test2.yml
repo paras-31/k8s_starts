@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  annotations:
+    description: created succesfully 
+spec:
+# here we create a container in a pod name nginx
+# conatiner 1 
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+# container 2 in same pod 
+  - name: c001
+    image: ubuntu
+    command: ["/bin/bash", "-c", "while true; do echo hello-paras; sleep 5 ; done"]
+  restartPolicy: Never
